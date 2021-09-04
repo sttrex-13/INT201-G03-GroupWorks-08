@@ -1,90 +1,78 @@
-//MUST "npm install prompt-sync" before RUN code for running code 'prompt'
-//call prompt-sync by require for using prompt
+
 const prompt = require('prompt-sync')();
- 
-let player1 = {};
-let player2 = {};
 
-//
-function setPlayer(){ 
-    let name1 = prompt('Insert Name Player1 :')
-    let name2 = prompt('Insert Name Player2 :')
-    player1.playerName1 = name1;
-    player2.playerName2 = name2;
-    return player1,player2
+let player1 = { name: prompt('Insert Name Player1 : '), dice: { point: [] }, result: [], resultPoint: 0 }; //สร้างobject ที่เก็บ String, Object, Array และ Number
+let player2 = { name: prompt('Insert Name Player2 : '), dice: { point: [] }, result: [], resultPoint: 0 };
+
+let round = prompt('How many times you want to play? : '); //ตั้งค่ากำหนดรอบการเล่น
+
+function Roll() { //functionในการทอยลูกเต๋าจากเลข 1-6
+    let point = Math.floor(Math.random() * 6) + 1; //Math.floor มีไว้ใช้ปัดเศษทศนิยมให้เป็นจำนวนเต็ม จากนั้นคูณด้วย 6 เพื่อให้ค่าที่สุ่มออกมาสูงสุดได้ 6
+    return point;
 }
-setPlayer();
 
-let chooseTime = prompt('How many times you want to play? :');
-let dice = {};
-let rdDice1 = [];
-let rdDice2 = [];
+function getResult(i) { //function การบันทึกคะแนนในแต่ละรอบ รับค่า i จากลูปเพื่อเป็นตัวบอกรอบนั้น ๆ
 
-function randomDice(){
-    
-   
-    for (let index = 0; index < chooseTime; index++) {
-        rdDice1[index] = Math.floor((Math.random()*6) + 1);
-        rdDice2[index] = Math.floor((Math.random()*6) + 1);
+    player1.dice.point[i] = Roll(); //player1 ทำการทอยลูกเต๋า แล้วเก็บใน array point เพื่อเป็นการเก็บคะแนนในแต่ละรอบ
+    player2.dice.point[i] = Roll();
+
+    console.log("\n"+player1.name + " get " + player1.dice.point[i] + " point"); //ประกาศว่า player1 ได้กี่แต้ม
+    console.log(player2.name + " get " + player2.dice.point[i] + " point");
+
+    if (player1.dice.point[i] == player2.dice.point[i]) { //check ว่าแต้มเท่ากันมั้ยโดยการเทียบ array point ระหว่าง player1 & player2
+        console.log("This round is Draw");
+        player1.result[i] = "Draw"; //เก็บผลลัพท์ไว้ใน array result ในแต่ละรอบดูได้จากค่าของ i
+        player2.result[i] = "Draw";
+
     }
-    dice.dice1 = rdDice1;
-    dice.dice2 = rdDice2;
-    player1.number1 = dice.dice1;
-    player2.number2 = dice.dice2;
+    else if (player1.dice.point[i] < player2.dice.point[i]) { //check ว่า player1 มีแต้มน้อยกว่า player2 หรือไม่
+        console.log("The Winner in this round is " + player2.name);
+        player1.result[i] = "Lose";
+        player2.result[i] = "Win";
+        player2.resultPoint++; //นับว่า player2 ชนะ 1 ครั้ง โดยการบวก resultPoint เพิ่ม 1
+    }
+    else if (player1.dice.point[i] > player2.dice.point[i]) { //check ว่า player1 มีแต้มมากกว่า player2 หรือไม่
+        console.log("The Winner in this round is " + player1.name);
+        player1.result[i] = "Win";
+        player2.result[i] = "Lose";
+        player1.resultPoint++; //นับว่า player1 ชนะ 1 ครั้ง โดยการบวก resultPoint เพิ่ม 1
+    }
+    else {
+        console.log("Error");
+    }
+
+    console.log("-------------------");
+
 }
-randomDice();
 
+var winner; //สร้างตัวแปรมาเพื่อรับค่า return ชื่อผู้ชนะ
 
-function checkPoint(){
+function play() {// function เพื่อเริ่มเล่นเกม
 
-    let result1 = 0;
-    let result2 = 0; 
-    var point1 = [];
-    var point2 = [];
-
-    for (let index = 0; index < chooseTime; index++) {
-    
-        if(player1.number1[index] > player2.number2[index]){
-            point1[index] = 'Win';
-            point2[index] = 'Lose';
-            result1++;
-        }
-        else if(player1.number1[index] < player2.number2[index]){
-            point1[index] = 'Lose';
-            point2[index] = 'Win';
-            result2++;
-        }else if(player1.number1[index] == player2.number2[index]){
-            point1[index] = 'Draw';
-            point2[index] = 'Draw';
-        }
+    for (let i = 0; i < round; i++) {  //ทำการวนเรียก function getresult ตามรอบที่กำหนดเพื่อหาผลคะแนน และนับว่าใครชนะมากที่สุด
+        getResult(i);
     }
-    
-    player1.PointEachRound1 = point1;
-    player2.PointEachRound2 = point2;
-    player1.lastResult1 = result1;
-    player2.lastResult2 = result2;
+    if (player1.resultPoint > player2.resultPoint) { //ทำการเทียบคะแนนรวมว่า player1 มีคะแนนรวมมากกว่า player2 หรือไม่
+        return winner = player1.name; //return ชื่อผู้ชนะออกมา
+    }
+    else if (player1.resultPoint < player2.resultPoint) { //ทำการเทียบคะแนนรวมว่า player1 มีคะแนนรวมน้อยกว่า player2 หรือไม่
+        return winner = player2.name;
+    }
+    else if (player1.resultPoint == player2.resultPoint) { //ทำการเทียบคะแนนรวมว่า player1มีคะแนนรวมเท่ากับ player2 หรือไม่
+        return winner = "Draw";
+    }
+    else console.log("Error");
 }
-checkPoint();
 
-console.log(player1);
-console.log(player2);
+play(); //ทำการเริ่มเล่นเกมโดยการเรียก function play();
 
-function finalResult(){
-       
-    if(player1.lastResult1 > player2.lastResult2){
-        console.log("The winner is " + player1.playerName1);
-    }
-    else if(player1.lastResult1 < player2.lastResult2){
-        console.log("The winner is " + player2.playerName2);
-    }
-    else if(player1.lastResult1 == player2.lastResult2){
-        console.log("Draw")
-    }else{
-        console.log("Error")
-    }
+if (winner == "Draw") {
+    console.log("All Result is Draw\n");
 }
-finalResult();
+else console.log("All Result " + winner + " is Winner\n");
 
+console.log("Result history of " + player1.name + " : " + player1.result); //ดูประวัติผลการเล่นของ player1
+console.log("Result history of " + player1.name + " : " + player2.result + "\n");
 
-
-
+console.log("Point history of " + player1.name + " : " + player1.dice.point); //ดูประวัติคะแนนของ player1
+console.log("Point history of " + player1.name + " : " + player2.dice.point);
