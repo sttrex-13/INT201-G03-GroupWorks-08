@@ -18,7 +18,7 @@ function updateProductInCart(productToCart){ //function check if product in cart
     }
    productInCart.push(productToCart)
 }
-console.log(productInCart)
+
 
 divprod.forEach(divprods => { 
 // iterate to add eventlistener to each product
@@ -37,6 +37,7 @@ divprod.forEach(divprods => {
       }
   
       updateProductInCart(productToCart); 
+      console.log(productInCart)
     }
   });
 });
