@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=PT+Serif&display=swap");
+
+/* bg color */
+/* html {
+  background-color: whitesmoke;
+} */
+
+/* nav bar*/
+.container-fluid {
+  padding: 20px;
+}
+
+.container-fluid .navbar-brand {
+  font-size: 30px;
+  font-family: "Mukta", sans-serif;
+}
+
+.container-fluid .home,
+.pd {
+  font-size: 20px;
+  font-family: "PT Serif", serif;
+}
+
+.container-fluid .fa-search {
+  font-size: 20px;
+}
+
+.navbar ul li {
+  color: gray;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+/* cart's num */
+#ex4 .p1[data-count]:after {
+  position: absolute;
+  right: 10%;
+  top: 8%;
+  content: attr(data-count);
+  font-size: 40%;
+  padding: 0.3em;
+  border-radius: 50%;
+  line-height: 1em;
+  color: white;
+  background: rgba(255, 0, 0, 0.85);
+  text-align: center;
+  min-width: 1em;
+}
+
+.navbar ul li:hover {
+  color: white;
+}
+
+/* products head */
+.display h2 {
+  font-size: 25px;
+  font-family: "Mukta", sans-serif;
+  border-style: none;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* product body */
+body {
+  text-align: center;
+}
+
+div#products:hover {
+  background-color: white;
+}
+
+div#products img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+div#products img {
+  margin: 30px 20px 30px 0;
+  width: 100%;
+  /* height: auto; */
+  transition: 0.3s;
+  border-radius: 3%;
+}
+
+div#name {
+  text-transform: uppercase;
+  /* color: rgb(255, 255, 255); */
+  color: grey;
+  font-size: 16px;
+}
+
+div#name,
+div#price {
+  padding: 5px;
+  text-align: center;
+}
+
+div#price {
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+}
+
+.product {
+  padding: 0 6px;
+  float: left;
+  width: 350px;
+  border-style: ridge;
+  border-radius: 10px;
+  margin: 3%;
+  padding: 2%;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  border: 2px solid;
+  cursor: pointer;
+  transition: 0.4s;
+  width: 60%;
+  font-size: 100%;
+  padding: 4%;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+  transition: 0.5s;
+}
+
+#inputValue {
+  background-color:mintcream;
+  border-style: solid;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.visible {
+  visibility: visible;
+
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* The alert message box */
+#alert {
+  padding: 25%;
+  background-color: rgba(192,192,192, 0.75); /* Red */
+  color: black; 
+  text-align: center;
+  margin: auto;
+  position:fixed;
+  top: 50%;
+  left: 50%;
+}
+
+/* The close button */
+#closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+#closebtn:hover {
+  color: black;
+}
+
+/* web size */
+@media only screen and (max-width: 700px) {
+  .display {
+    width: 50%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .display {
+    width: 100%;
+  }
+}
+
+/* theme */
+html {
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px; */
+  /* background-color: #fff;
+  color: #333; */
+  /* line-height: 1.7; */
+  transition: 0.2s ease-in-out;
+  /* padding: 20px; */
+}
+
+.dark {
+  background-color: black;
+  color: #fff;
+}
+
+#theme-switcher {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#username {
+font-size: 20px ;
+color: azure;
+padding-top: 20px;
+font-family: "Mukta", sans-serif;
+text-transform: uppercase;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  /* background-color: #fefefe; */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: auto;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
