@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=PT+Serif&display=swap");
+
+/* nav bar*/
+.container-fluid {
+  padding: 20px;
+}
+
+.container-fluid .navbar-brand {
+  font-size: 30px;
+  font-family: "Mukta", sans-serif;
+}
+
+.container-fluid .home,
+.pd {
+  font-size: 20px;
+  font-family: "PT Serif", serif;
+}
+
+.container-fluid .fa-search {
+  font-size: 20px;
+}
+
+.navbar ul li {
+  color: gray;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+/* cart's num */
+#ex4 .p1[data-count]:after {
+  position: absolute;
+  right: 10%;
+  top: 8%;
+  content: attr(data-count);
+  font-size: 40%;
+  padding: 0.3em;
+  border-radius: 50%;
+  line-height: 1em;
+  color: white;
+  background: rgba(255, 0, 0, 0.85);
+  text-align: center;
+  min-width: 1em;
+}
+
+.navbar ul li:hover {
+  color: white;
+}
+
+/* products head */
+.display h2 {
+  font-size: 25px;
+  font-family: "Mukta", sans-serif;
+  border-style: none;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* product body */
+body {
+  text-align: center;
+}
+
+div#products:hover {
+  background-color: white;
+}
+
+div#products img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+div#products img {
+  margin: 30px 20px 30px 0;
+  width: 100%;
+  transition: 0.3s;
+  border-radius: 3%;
+}
+
+div#name {
+  text-transform: uppercase;
+  color: grey;
+  font-size: 16px;
+}
+
+p#name,
+p#price {
+  padding: 5px;
+  text-align: center;
+}
+
+p#price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.product {
+  padding: 0 6px;
+  float: left;
+  width: 350px;
+  border-style: ridge;
+  border-radius: 10px;
+  margin: 3%;
+  padding: 2%;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  border: 2px solid;
+  cursor: pointer;
+  transition: 0.4s;
+  width: 60%;
+  font-size: 100%;
+  padding: 4%;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+  transition: 0.5s;
+}
+
+#inputValue {
+  background-color:mintcream;
+  border-style: solid;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.visible {
+  visibility: visible;
+
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* web size */
+@media only screen and (max-width: 700px) {
+  .display {
+    width: 50%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .display {
+    width: 100%;
+  }
+}
+
+/* theme */
+html {
+  transition: 0.2s ease-in-out;
+}
+
+.dark {
+  background-color: black;
+  color: #fff;
+}
+
+#theme-switcher {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#username {
+font-size: 20px ;
+color: azure;
+padding-top: 20px;
+font-family: "Mukta", sans-serif;
+text-transform: uppercase;
+}
+
+#clear {
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 12px;
+}
+
+#clear:hover {
+    color:white;
+}

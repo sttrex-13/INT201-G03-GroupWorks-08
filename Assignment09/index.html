@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Team Wang's Products</title>
+
+    <!-- products css -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Show cart css -->
+    <link rel="stylesheet" href="showCart.css" />
+
+    <!-- nav bar -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    
+    <!-- carts and search icon -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+
+    />
+
+  </head>
+
+  <body>
+    <!-- nav bar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"> TEAM WANG </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="home"><a href="#"> Home </a></li>
+            <li class="pd"><a href="#"> Products </a></li>
+
+            <!-- search -->
+            <li><a id="search" class="fa fa-search"></a></li>
+            <span id="input" href="./img/magnifying-glass.png" class="invisible">
+                <input id="inputValue" placeholder="Search" type="text">
+                <button id="searchBtn" type="button" >Search</button>
+            </span>
+          </ul>
+
+          <!-- cart -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a id="username"></a>
+            </li>
+            <li>
+              <a id="theme-switcher" class="themeBtn"></a>
+            </li>
+            <li>
+                <div id="ex4" class="btn">
+                  <!-- เลขสินค้าในตะกร้า -->
+                  <span class="p1 fa-stack fa-2x has-badge" data-count="0">
+                    <!-- cart icon -->
+                    <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse"></i>
+                  </span>
+                </div>
+            </li>
+            <li>
+              <button id="clear">Remove</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- products body -->
+    <div class="display">
+      <h2>PRODUCTS</h2>
+      <div id="products">
+        <!-- insert data -->
+      </div>
+    </div>
+
+
+    <script src="./productList.mjs" type="module"></script>
+    <script src="./productmy.js" type="module"></script>
+    <script src="./search.js" type="module"></script>
+    <script src="./cart.js" type="module"></script>
+    <script src="./webstorage.js" type="module"></script>
+    <script src="/theme.js" type="module"></script>
+  </body>
+</html>
